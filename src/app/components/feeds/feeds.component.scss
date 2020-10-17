@@ -1,7 +1,12 @@
 :host {
   width: 12rem;
-  border-right: 0.0625rem solid #e2e8f0;
+}
+
+.feed-list {
+  position: fixed;
+  width: 12rem;
   padding-right: 0.5rem;
+  border-right: 0.0625rem solid #e2e8f0;
 }
 
 button {

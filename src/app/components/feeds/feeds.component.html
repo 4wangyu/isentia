@@ -1,10 +1,12 @@
-<button class="all-feeds">Feeds</button>
+<div class="feed-list">
+  <button class="all-feeds">Feeds</button>
 
-<button *ngFor="let feed of feeds" class="overflow-ellipsis">
-  {{ feed.title }}
-</button>
+  <button *ngFor="let feed of feeds" class="overflow-ellipsis">
+    {{ feed.title }}
+  </button>
 
-<button class="add-feed-button">
-  <mat-icon>add</mat-icon>
-  <span>Add Feed</span>
-</button>
+  <button class="add-feed-button">
+    <mat-icon>add</mat-icon>
+    <span>Add Feed</span>
+  </button>
+</div>

@@ -1,0 +1,47 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.625rem;
+  font-weight: 700;
+
+  button {
+    padding: 0;
+    background: transparent;
+    margin: 0;
+    height: 1.25rem;
+
+    &:hover {
+      background: #f1f6f9;
+    }
+
+    mat-icon {
+      height: 1.25rem;
+      width: 1.25rem;
+      font-size: 1.25rem;
+    }
+  }
+}
+
+summary:focus,
+summary:hover {
+  text-decoration: unset;
+}
+
+details,
+summary {
+  background-color: transparent;
+}
+
+summary {
+  .title {
+    font-size: 1.125rem;
+  }
+
+  div {
+    font-size: 0.75rem;
+    font-weight: 300;
+    margin-top: 0.3125rem;
+    color: #a0aec0;
+  }
+}

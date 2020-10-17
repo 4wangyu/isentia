@@ -1,7 +1,7 @@
 <app-feeds></app-feeds>
 
 <div>
-  <app-add-feed></app-add-feed>
+  <app-add-feed *ngIf="addFeed"></app-add-feed>
 
-  <app-contents></app-contents>
+  <app-contents *ngIf="!addFeed"></app-contents>
 </div>
