@@ -1,12 +1,8 @@
 import { createReducer, on } from '@ngrx/store';
-import { Feed } from '../app.model';
-import actions from './state.actions';
-import { FEEDS_STORAGE_KEY, INITIAL_FEEDS } from './state.config';
+import { feedsInit, feedsUpdate } from './state.actions';
 
-const feedsReducer = createReducer(
-  (JSON.parse(localStorage.getItem(FEEDS_STORAGE_KEY)) ??
-    INITIAL_FEEDS) as Feed[],
-  on(actions.feedsUpdate, (state, { newFeeds }) => [...state, ...newFeeds])
+export const feedsReducer = createReducer(
+  [],
+  on(feedsUpdate, (state, { newFeeds }) => [...state, ...newFeeds]),
+  on(feedsInit, (state, { feeds }) => feeds)
 );
-
-export default { feedsReducer };

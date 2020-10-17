@@ -1,9 +1,12 @@
 import { createAction, props } from '@ngrx/store';
 import { Feed } from '../app.model';
 
-const feedsUpdate = createAction(
+export const feedsUpdate = createAction(
   '[Feeds] Update',
   props<{ newFeeds: Feed[] }>()
 );
 
-export default { feedsUpdate };
+export const feedsInit = createAction(
+  '[Feeds] Init',
+  props<{ feeds: Feed[] }>()
+);

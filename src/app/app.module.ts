@@ -8,7 +8,8 @@ import { ContentsComponent } from './components/contents/contents.component';
 import { FeedsComponent } from './components/feeds/feeds.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { EffectsModule } from '@ngrx/effects';
-import reducers from './state/state.reducer';
+import { feedsReducer } from './state/state.reducer';
+import { StorageEffects } from './state/storage.effects';
 
 @NgModule({
   declarations: [
@@ -21,8 +22,8 @@ import reducers from './state/state.reducer';
   imports: [
     BrowserModule,
     MatIconModule,
-    StoreModule.forRoot({ feeds: reducers.feedsReducer }),
-    EffectsModule.forRoot([]),
+    StoreModule.forRoot({ feeds: feedsReducer }),
+    EffectsModule.forRoot([StorageEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent],
