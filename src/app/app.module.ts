@@ -8,6 +8,7 @@ import { ContentsComponent } from './components/contents/contents.component';
 import { FeedsComponent } from './components/feeds/feeds.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { EffectsModule } from '@ngrx/effects';
+import reducers from './state/state.reducer';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { EffectsModule } from '@ngrx/effects';
   imports: [
     BrowserModule,
     MatIconModule,
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot({ feeds: reducers.feedsReducer }),
     EffectsModule.forRoot([]),
   ],
   providers: [],

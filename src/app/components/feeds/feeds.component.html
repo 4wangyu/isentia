@@ -1,7 +1,11 @@
 <div class="feed-list">
   <button class="all-feeds">Feeds</button>
 
-  <button *ngFor="let feed of feeds" class="overflow-ellipsis">
+  <button
+    *ngFor="let feed of feeds$ | async"
+    class="overflow-ellipsis"
+    [title]="feed.title"
+  >
     {{ feed.title }}
   </button>
 
