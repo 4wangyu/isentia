@@ -10,3 +10,9 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+@mixin icon-size($size) {
+  height: $size;
+  width: $size;
+  font-size: $size;
+}
