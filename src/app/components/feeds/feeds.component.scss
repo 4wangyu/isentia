@@ -9,6 +9,8 @@
   width: 12rem;
   padding-right: 0.5rem;
   border-right: 0.0625rem solid #e2e8f0;
+  overflow-y: auto;
+  max-height: calc(100% - 1.25rem);
 }
 
 button {
