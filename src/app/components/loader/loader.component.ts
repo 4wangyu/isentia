@@ -2,15 +2,15 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-loader',
-  template: ` <div class="lds-dual-ring"></div> `,
+  template: ` <div class="dual-ring"></div> `,
   styles: [
     `
-      .lds-dual-ring {
+      .dual-ring {
         display: inline-block;
         width: 80px;
         height: 80px;
       }
-      .lds-dual-ring:after {
+      .dual-ring:after {
         content: ' ';
         display: block;
         width: 64px;
@@ -19,9 +19,9 @@ import { Component, OnInit } from '@angular/core';
         border-radius: 50%;
         border: 3px solid #000;
         border-color: #000 transparent #000 transparent;
-        animation: lds-dual-ring 1.2s linear infinite;
+        animation: dual-ring 1.2s linear infinite;
       }
-      @keyframes lds-dual-ring {
+      @keyframes dual-ring {
         0% {
           transform: rotate(0deg);
         }
