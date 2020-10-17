@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { AddFeedComponent } from './components/add-feed/add-feed.component';
 import { ContentsComponent } from './components/contents/contents.component';
 import { FeedsComponent } from './components/feeds/feeds.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { FeedsComponent } from './components/feeds/feeds.component';
     FeedsComponent,
     ContentsComponent,
     AddFeedComponent,
+    LoaderComponent,
   ],
   imports: [BrowserModule, StoreModule.forRoot({}, {}), MatIconModule],
   providers: [],
