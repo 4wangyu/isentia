@@ -1,1 +1,10 @@
-<p>feeds works!</p>
+<button class="all-feeds">Feeds</button>
+
+<button *ngFor="let feed of feeds" class="overflow-ellipsis">
+  {{ feed.title }}
+</button>
+
+<button class="add-feed">
+  <mat-icon>add</mat-icon>
+  <span>Add Feed</span>
+</button>
