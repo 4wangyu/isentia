@@ -4,9 +4,9 @@
 
 A RSS reader.
 
-[Demo hosted on Netlify](https://isentia.netlify.app/)
+<a href='https://isentia.netlify.app/' target='_blank'>Demo hosted on Netlify</a>
 
-## Development
+## How to run
 
 - Clone to local: `git clone https://github.com/4wangyu/isentia.git`
 - Install deps: `npm i`
@@ -24,7 +24,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the d
 
 ## Usage
 
-#### New Feed Contents
+### New Feed Contents
 
 When there is new feed contents coming in, a refresh button with red dot will be shown at the top right corner of the app.
 
@@ -32,7 +32,7 @@ Click the button to show the new contents.
 
 ![new feeds](imgs/new-feeds.png)
 
-#### Add Feed
+### Add Feed
 
 On clicking the **+ Add Feed** button, an input box will be shown. Press **Enter** after inputting the new feed's URL. The feed's title and a Follow button will be shown. Click the button to add the feed to your subscription list.
 
@@ -42,7 +42,7 @@ The followed feeds are also shown here. You can click the Unfollow button to uns
 
 Clicking on the **Feeds** button at the top left corner to go back to the main contents view.
 
-#### Test New Feed Content
+### Test New Feed Content
 
 Since it's not frequent to have new feed contents coming in, a **Test New Content** button is added to simulate the effect. When clicking on this button, one Feed Item will be added. To show the newly added item, click on the refresh button with red dot at the top right corner.
 
