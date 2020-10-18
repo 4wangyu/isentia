@@ -33,6 +33,14 @@ summary {
   background-color: transparent;
 }
 
+details > :not(summary) {
+  font-size: 0.875rem;
+}
+
+details[open] summary {
+  margin-bottom: unset;
+}
+
 summary {
   .title {
     font-size: 1.125rem;
