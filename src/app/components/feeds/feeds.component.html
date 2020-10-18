@@ -1,5 +1,5 @@
 <div class="feed-list">
-  <button class="all-feeds">Feeds</button>
+  <button class="all-feeds" (click)="appComp.addFeed = false">Feeds</button>
 
   <!-- Disable buttons first. Pending implementing filtering -->
   <button
@@ -11,7 +11,7 @@
     {{ feed.title }}
   </button>
 
-  <button class="add-feed-button">
+  <button class="add-feed-button" (click)="appComp.addFeed = true">
     <mat-icon>add</mat-icon>
     <span>Add Feed</span>
   </button>
