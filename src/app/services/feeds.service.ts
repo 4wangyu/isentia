@@ -3,8 +3,10 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Feed, Item } from '../app.model';
+import { toHttpParams } from '../state/state.util';
 
-const RSS_TO_JSON = 'https://api.rss2json.com/v1/api.json?rss_url=';
+const RSS_TO_JSON = 'https://api.rss2json.com/v1/api.json';
+const api_key = 'o224jyrvczf3ljwhob2ve4hwyb2vzftxpoggr1ke';
 
 @Injectable({
   providedIn: 'root',
@@ -12,14 +14,22 @@ const RSS_TO_JSON = 'https://api.rss2json.com/v1/api.json?rss_url=';
 export class FeedsService {
   constructor(private http: HttpClient) {}
 
-  getFeeds(url: string): Observable<{ feed: Feed; items: Item[] }> {
-    return this.http.get<{ feed: Feed; items: Item[] }>(RSS_TO_JSON + url).pipe(
-      map(({ feed, items }) => ({
-        feed,
-        items: items.map((item) => {
-          return { ...item, channel: feed.title };
-        }),
-      }))
-    );
+  getFeeds(rss_url: string): Observable<{ feed: Feed; items: Item[] }> {
+    const params = toHttpParams({
+      rss_url,
+      api_key,
+    });
+    return this.http
+      .get<{ feed: Feed; items: Item[] }>(RSS_TO_JSON, {
+        params,
+      })
+      .pipe(
+        map(({ feed, items }) => ({
+          feed,
+          items: items.map((item) => {
+            return { ...item, channel: feed.title };
+          }),
+        }))
+      );
   }
 }
