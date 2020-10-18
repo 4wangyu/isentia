@@ -1,31 +1,36 @@
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { MockStore, provideMockStore } from '@ngrx/store/testing';
 
 describe('AppComponent', () => {
+  let component: AppComponent;
+  let element: HTMLElement;
+  let fixture: ComponentFixture<AppComponent>;
+
+  let store: MockStore;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
-      ],
+      declarations: [AppComponent],
+      providers: [provideMockStore()],
     }).compileComponents();
+
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+    element = fixture.nativeElement;
+    fixture.detectChanges();
+
+    store = TestBed.inject(MockStore);
   });
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 
-  it(`should have as title 'isentia'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('isentia');
-  });
+  it('should hide the add feed component', () => {
+    expect(component.addFeed).toBeFalse();
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('isentia app is running!');
+    const addFeedComp = element.querySelector('app-add-feed');
+    expect(addFeedComp).toBeFalsy();
   });
 });

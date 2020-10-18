@@ -18,7 +18,7 @@
 
 <h3>Followed Feeds:</h3>
 
-<div *ngFor="let f of feeds$ | async">
+<div *ngFor="let f of feeds$ | async" class="followed-feed">
   <span>{{ f.title }}</span>
   <button (click)="removeFeed(f)">Unfollow</button>
 </div>
