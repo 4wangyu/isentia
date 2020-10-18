@@ -1,13 +1,11 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { from, of } from 'rxjs';
 import { catchError, map, mergeMap, reduce, switchMap } from 'rxjs/operators';
-import { Feed, Item } from '../app.model';
+import { Item } from '../app.model';
+import { FeedsService } from '../services/feeds.service';
 import { contentsPoll, contentsUpdate } from './state.actions';
 import { sortByDate } from './state.util';
-
-const RSS_TO_JSON = 'https://api.rss2json.com/v1/api.json?rss_url=';
 
 @Injectable()
 export class HttpEffects {
@@ -17,27 +15,21 @@ export class HttpEffects {
       switchMap((action) => {
         return from(action.feeds).pipe(
           mergeMap((feed) => {
-            return this.http
-              .get<{ feed: Feed; items: Item[] }>(RSS_TO_JSON + feed.url)
-              .pipe(
-                map(({ feed, items }) =>
-                  items.map((item) => {
-                    return { ...item, channel: feed.title };
-                  })
-                ),
-                catchError((err) => {
-                  console.error(err);
-                  return of([] as Item[]);
-                })
-              );
+            return this.feedsSvc.getFeeds(feed.url).pipe(
+              map(({ items }) => items),
+              catchError((err) => {
+                console.error(err);
+                return of([] as Item[]);
+              })
+            );
           }),
           reduce((prev: Item[], curr: Item[]) => prev.concat(curr)),
-          map(sortByDate),
+          // map(sortByDate),
           map((contents) => contentsUpdate({ contents }))
         );
       })
     )
   );
 
-  constructor(private actions$: Actions, private http: HttpClient) {}
+  constructor(private actions$: Actions, private feedsSvc: FeedsService) {}
 }

@@ -1,6 +1,12 @@
-<input />
+<input (keyup.enter)="getFeed($event.target.value)" />
 
-<div>
-  <span>FT中文网一周十大热门文章</span>
-  <button>Follow</button>
+<div *ngIf="feed">
+  <span>{{ feed.feed.title }}</span>
+  <button [disabled]="followed$ | async" (click)="addFeed()">
+    {{ (followed$ | async) ? "Followed" : "Follow" }}
+  </button>
+</div>
+
+<div class="error" *ngIf="hasErr">
+  Failed to parse the feed. Please try again
 </div>
