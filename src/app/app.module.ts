@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { AddFeedComponent } from './components/add-feed/add-feed.component';
 import { ContentsComponent } from './components/contents/contents.component';
 import { FeedsComponent } from './components/feeds/feeds.component';
-import { LoaderComponent } from './components/loader/loader.component';
 import { EffectsModule } from '@ngrx/effects';
 import { contentsReducer, feedsReducer } from './state/state.reducer';
 import { StorageEffects } from './state/storage.effects';
@@ -20,7 +19,6 @@ import { AutofocusDirective } from './directives/autofocus.directive';
     FeedsComponent,
     ContentsComponent,
     AddFeedComponent,
-    LoaderComponent,
     AutofocusDirective,
   ],
   imports: [
