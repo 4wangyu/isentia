@@ -1,7 +1,9 @@
 <div class="feed-list">
   <button class="all-feeds">Feeds</button>
 
+  <!-- Disable buttons first. Pending implementing filtering -->
   <button
+    disabled
     *ngFor="let feed of feeds$ | async"
     class="overflow-ellipsis"
     [title]="feed.title"
