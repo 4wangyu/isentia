@@ -11,6 +11,11 @@ export const feedsInit = createAction(
   props<{ feeds: Feed[] }>()
 );
 
+export const feedRemove = createAction(
+  '[Feeds] Remove',
+  props<{ feed: Feed }>()
+);
+
 export const contentsUpdate = createAction(
   '[Contents] Update',
   props<{ contents: Item[] }>()

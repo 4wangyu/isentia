@@ -3,7 +3,11 @@ import { Store } from '@ngrx/store';
 import { map } from 'rxjs/operators';
 import { Feed, Item } from '../../models/app.model';
 import { FeedsService } from '../../services/feeds.service';
-import { contentsUpdate, feedsUpdate } from '../../state/state.actions';
+import {
+  contentsUpdate,
+  feedRemove,
+  feedsUpdate,
+} from '../../state/state.actions';
 
 @Component({
   selector: 'app-add-feed',
@@ -13,9 +17,11 @@ import { contentsUpdate, feedsUpdate } from '../../state/state.actions';
 export class AddFeedComponent implements OnInit {
   feed: { feed: Feed; items: Item[] };
   hasErr: boolean;
-  followed$ = this.store
+
+  readonly followed$ = this.store
     .select('feeds')
     .pipe(map((feeds) => feeds.some((f) => f.url === this.feed?.feed?.url)));
+  readonly feeds$ = this.store.select('feeds');
 
   constructor(
     private feedsSvc: FeedsService,
@@ -40,5 +46,9 @@ export class AddFeedComponent implements OnInit {
   addFeed(): void {
     this.store.dispatch(feedsUpdate({ newFeeds: [this.feed.feed] }));
     this.store.dispatch(contentsUpdate({ contents: this.feed.items }));
+  }
+
+  removeFeed(feed: Feed): void {
+    this.store.dispatch(feedRemove({ feed }));
   }
 }

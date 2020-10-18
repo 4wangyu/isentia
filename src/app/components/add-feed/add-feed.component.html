@@ -15,3 +15,10 @@
 <div class="error" *ngIf="hasErr">
   Failed to parse the feed. Please try again
 </div>
+
+<h3>Followed Feeds:</h3>
+
+<div *ngFor="let f of feeds$ | async">
+  <span>{{ f.title }}</span>
+  <button (click)="removeFeed(f)">Unfollow</button>
+</div>
