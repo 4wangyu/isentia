@@ -1,6 +1,11 @@
 import { createReducer, on } from '@ngrx/store';
 import { Feed, Item } from '../app.model';
-import { contentsUpdate, feedsInit, feedsUpdate } from './state.actions';
+import {
+  contentsLoaded,
+  contentsUpdate,
+  feedsInit,
+  feedsUpdate,
+} from './state.actions';
 import { sortByDate } from './state.util';
 
 export const feedsReducer = createReducer(
@@ -17,5 +22,6 @@ export const contentsReducer = createReducer(
       .filter((c) => !ids.has(c.guid))
       .map((c) => ({ ...c, new: true }));
     return sortByDate(state.concat(newContents));
-  })
+  }),
+  on(contentsLoaded, (state) => state.map((c) => ({ ...c, new: false })))
 );

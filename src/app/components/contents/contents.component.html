@@ -1,9 +1,15 @@
 <div class="header">
   Contents
-  <button *ngIf="hasNew$ | async"><mat-icon>refresh</mat-icon></button>
+  <button
+    *ngIf="hasNew$ | async"
+    title="Load New Feeds"
+    (click)="loadNewFeeds()"
+  >
+    <mat-icon>refresh</mat-icon>
+  </button>
 </div>
 
-<div *ngFor="let content of contents$ | async" [class.fade-in]="content.new">
+<div *ngFor="let content of contents" [class.fade-in]="content.new">
   <details>
     <summary>
       <span class="title">{{ content.title }}</span>

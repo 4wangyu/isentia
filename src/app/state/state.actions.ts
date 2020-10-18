@@ -20,3 +20,5 @@ export const contentsPoll = createAction(
   '[Contents] Poll',
   props<{ feeds: Feed[] }>()
 );
+
+export const contentsLoaded = createAction('[Contents] Loaded');
