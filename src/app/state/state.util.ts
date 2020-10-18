@@ -13,13 +13,7 @@ export function toHttpParams(obj: { [key: string]: any }): HttpParams {
     if (obj.hasOwnProperty(key)) {
       const val = obj[key];
       if (val !== null && val !== undefined && val !== '') {
-        if (val instanceof Array) {
-          val.forEach((item, i) => {
-            params = params.append(`${key}[${i}]`, item.toString());
-          });
-        } else {
-          params = params.append(key, val.toString());
-        }
+        params = params.append(key, val.toString());
       }
     }
   }
