@@ -4,7 +4,7 @@
 
 A RSS reader.
 
-<a href='https://isentia.netlify.app/' target='_blank'>Demo hosted on Netlify</a>
+[Demo hosted on Netlify](https://isentia.netlify.app/)
 
 ## How to run
 
