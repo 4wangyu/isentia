@@ -5,6 +5,7 @@ import { from, of } from 'rxjs';
 import { catchError, map, mergeMap, reduce, switchMap } from 'rxjs/operators';
 import { Feed, Item } from '../app.model';
 import { contentsPoll, contentsUpdate } from './state.actions';
+import { sortByDate } from './state.util';
 
 const RSS_TO_JSON = 'https://api.rss2json.com/v1/api.json?rss_url=';
 
@@ -31,12 +32,7 @@ export class HttpEffects {
               );
           }),
           reduce((prev: Item[], curr: Item[]) => prev.concat(curr)),
-          map((items) => {
-            return items.sort(
-              (a, b) =>
-                new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime()
-            );
-          }),
+          map(sortByDate),
           map((contents) => contentsUpdate({ contents }))
         );
       })

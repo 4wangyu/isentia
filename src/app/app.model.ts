@@ -5,6 +5,7 @@ export interface Item {
   guid: string;
   content: string;
   channel: string;
+  new?: boolean;
 }
 
 export interface Feed {
