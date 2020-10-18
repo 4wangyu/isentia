@@ -1,4 +1,4 @@
-<input (keyup.enter)="getFeed($event.target.value)" />
+<input type="text" app-autofocus (keyup.enter)="getFeed($event.target.value)" />
 
 <div *ngIf="feed">
   <span>{{ feed.feed.title }}</span>

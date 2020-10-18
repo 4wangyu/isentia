@@ -12,6 +12,7 @@ import { contentsReducer, feedsReducer } from './state/state.reducer';
 import { StorageEffects } from './state/storage.effects';
 import { HttpEffects } from './state/http.effects';
 import { HttpClientModule } from '@angular/common/http';
+import { AutofocusDirective } from './directives/autofocus.directive';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
     ContentsComponent,
     AddFeedComponent,
     LoaderComponent,
+    AutofocusDirective,
   ],
   imports: [
     BrowserModule,
