@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Subscription, timer } from 'rxjs';
 import { take } from 'rxjs/operators';
-import { Feed } from './app.model';
+import { Feed } from './models/app.model';
 import { contentsPoll, feedsInit, feedsUpdate } from './state/state.actions';
 import { FEEDS_STORAGE_KEY, INITIAL_FEEDS } from './state/state.config';
 

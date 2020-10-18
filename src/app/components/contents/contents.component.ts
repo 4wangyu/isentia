@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { map, shareReplay, skip, take } from 'rxjs/operators';
-import { Item } from '../../app.model';
+import { Item } from '../../models/app.model';
 import { contentsLoaded } from '../../state/state.actions';
 
 @Component({

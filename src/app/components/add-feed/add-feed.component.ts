@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { map } from 'rxjs/operators';
-import { Feed, Item } from '../../app.model';
+import { Feed, Item } from '../../models/app.model';
 import { FeedsService } from '../../services/feeds.service';
 import { contentsUpdate, feedsUpdate } from '../../state/state.actions';
 

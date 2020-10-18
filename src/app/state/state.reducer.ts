@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { Feed, Item } from '../app.model';
+import { Feed, Item } from '../models/app.model';
 import {
   contentsLoaded,
   contentsUpdate,

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Feed, Item } from '../app.model';
+import { Feed, Item } from '../models/app.model';
 import { toHttpParams } from '../state/state.util';
 
 const RSS_TO_JSON = 'https://api.rss2json.com/v1/api.json';

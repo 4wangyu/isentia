@@ -2,7 +2,7 @@ import { Component, forwardRef, Inject, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AppComponent } from '../../app.component';
-import { Feed } from '../../app.model';
+import { Feed } from '../../models/app.model';
 import { contentsUpdate } from '../../state/state.actions';
 
 @Component({

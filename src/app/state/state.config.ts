@@ -1,4 +1,4 @@
-import { Feed } from '../app.model';
+import { Feed } from '../models/app.model';
 
 export const INITIAL_FEEDS: Feed[] = [
   {

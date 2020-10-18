@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { from, of } from 'rxjs';
 import { catchError, map, mergeMap, reduce, switchMap } from 'rxjs/operators';
-import { Item } from '../app.model';
+import { Item } from '../models/app.model';
 import { FeedsService } from '../services/feeds.service';
 import { contentsPoll, contentsUpdate } from './state.actions';
 

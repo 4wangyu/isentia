@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { tap } from 'rxjs/operators';
-import { Feed } from '../app.model';
+import { Feed } from '../models/app.model';
 import { feedsUpdate } from './state.actions';
 import { FEEDS_STORAGE_KEY } from './state.config';
 

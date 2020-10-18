@@ -1,5 +1,5 @@
 import { HttpParams } from '@angular/common/http';
-import { Item } from '../app.model';
+import { Item } from '../models/app.model';
 
 export const sortByDate = (items: Item[]): Item[] => {
   return items.sort(
