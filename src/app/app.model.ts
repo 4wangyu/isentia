@@ -1,12 +1,10 @@
 export interface Item {
-  creator: string;
   title: string;
+  pubDate: string;
   link: string;
-  pubDate: Date;
-  content: string;
-  contentSnippet: string;
   guid: string;
-  isoDate: Date;
+  content: string;
+  channel: string;
 }
 
 export interface Feed {

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { Item } from '../../app.model';
 
 @Component({
   selector: 'app-contents',
@@ -6,15 +9,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contents.component.scss'],
 })
 export class ContentsComponent implements OnInit {
-  contents = Array(20).fill({
-    title:
-      'AFL finals 2020 live updates: Wasteful Geelong Cats take the early edge against Brisbane Lions in preliminary final',
-    feed: 'Sydney Morning Herald - Latest News',
-    time: '22 minutes ago',
-    content: 'more info...',
-  });
+  contents$: Observable<Item[]>;
 
-  constructor() {}
+  constructor(store: Store<{ contents: Item[] }>) {
+    this.contents$ = store.select('contents');
+  }
 
   ngOnInit(): void {}
 }

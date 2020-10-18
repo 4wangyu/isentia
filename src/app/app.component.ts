@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Feed } from './app.model';
-import { feedsInit, feedsUpdate } from './state/state.actions';
+import { contentsPoll, feedsInit, feedsUpdate } from './state/state.actions';
 import { FEEDS_STORAGE_KEY, INITIAL_FEEDS } from './state/state.config';
 
 @Component({
@@ -26,5 +26,7 @@ export class AppComponent implements OnInit {
     } else {
       this.store.dispatch(feedsUpdate({ newFeeds: INITIAL_FEEDS }));
     }
+
+    this.store.dispatch(contentsPoll({ feeds: feeds ?? INITIAL_FEEDS }));
   }
 }

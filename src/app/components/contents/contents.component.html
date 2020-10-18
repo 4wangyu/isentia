@@ -3,17 +3,20 @@
   <button><mat-icon>refresh</mat-icon></button>
 </div>
 
-<div *ngFor="let content of contents">
+<div *ngFor="let content of contents$ | async">
   <details>
     <summary>
       <span class="title">{{ content.title }}</span>
       <div>
-        <span>{{ content.feed }}</span>
+        <span>{{ content.channel }}</span>
         <span>&nbsp;|&nbsp;</span>
-        <span>{{ content.time }}</span>
+        <span>{{ content.pubDate }}</span>
       </div>
     </summary>
 
     <div>{{ content.content }}</div>
+    <a [href]="content.link" target="_blank" rel="noopener noreferrer"
+      >View Entire Post</a
+    >
   </details>
 </div>

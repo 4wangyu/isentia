@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { Feed } from '../app.model';
+import { Feed, Item } from '../app.model';
 
 export const feedsUpdate = createAction(
   '[Feeds] Update',
@@ -8,5 +8,15 @@ export const feedsUpdate = createAction(
 
 export const feedsInit = createAction(
   '[Feeds] Init',
+  props<{ feeds: Feed[] }>()
+);
+
+export const contentsUpdate = createAction(
+  '[Contents] Update',
+  props<{ contents: Item[] }>()
+);
+
+export const contentsPoll = createAction(
+  '[Contents] Poll',
   props<{ feeds: Feed[] }>()
 );
