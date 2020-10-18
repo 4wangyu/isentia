@@ -5,7 +5,6 @@ import { catchError, map, mergeMap, reduce, switchMap } from 'rxjs/operators';
 import { Item } from '../app.model';
 import { FeedsService } from '../services/feeds.service';
 import { contentsPoll, contentsUpdate } from './state.actions';
-import { sortByDate } from './state.util';
 
 @Injectable()
 export class HttpEffects {
@@ -24,7 +23,6 @@ export class HttpEffects {
             );
           }),
           reduce((prev: Item[], curr: Item[]) => prev.concat(curr)),
-          // map(sortByDate),
           map((contents) => contentsUpdate({ contents }))
         );
       })
